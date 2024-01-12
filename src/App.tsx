@@ -3,6 +3,8 @@ import TextEntry from './TextEntry';
 import SyntaxOutput from './SyntaxOutput';
 import Annotator from './Annotator';
 
+
+
 const App: React.FC = () => {
   const [text, setText] = useState<string>('');
 
