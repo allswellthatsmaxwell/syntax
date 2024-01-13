@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
+import { Grid, Drawer, Box } from '@mui/material';
+
+import './App.css';
 import TextEntry from './TextEntry';
-import SyntaxOutput from './SyntaxOutput';
-import Annotator from './Annotator';
+import SyntaxHighlighter from './SyntaxHighlighter';
 
 
 
 const App: React.FC = () => {
   const [text, setText] = useState<string>('');
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Text Syntax Highlighter</h1>
-      </header>
       <main>
-        <TextEntry setText={setText} />
-        <SyntaxOutput text={text} />
-        <Annotator text={text} />
+        <div className='text-box'>
+          <TextEntry setText={setText} />          
+          <SyntaxHighlighter text={text} />          
+        </div>
+
       </main>
     </div>
   );
