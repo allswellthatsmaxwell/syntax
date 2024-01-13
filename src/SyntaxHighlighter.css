@@ -1,0 +1,51 @@
+/* SyntaxHighlighter.css */
+
+.syntax-item {
+    display: inline;
+    /* Or 'inline-block' depending on your layout needs */
+    margin-right: 4px;
+    /* Adjust spacing between items */
+}
+
+.syntax-key {
+    text-decoration: underline;
+    cursor: pointer;
+    /* Optional: Changes the cursor on hover to indicate interactivity */
+    transition: background-color 0.3s;
+}
+
+.syntax-key:hover {
+    background-color: #e0e0e0;
+    color: #000000; /* Change text color on hover */
+    border-radius: 4px; /* Adds rounded corners */
+    
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    font-size: 0.7rem;
+    background-color: white;
+    color: #000;
+    text-align: left;
+    border-radius: 6px;
+    border: 1px solid #000; 
+    padding: 2px 5px;
+    /* margin: 1px; */
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
