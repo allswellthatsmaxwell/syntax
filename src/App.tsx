@@ -7,10 +7,8 @@ import Annotator from './Annotator';
 
 const App: React.FC = () => {
   const [text, setText] = useState<string>('');
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
-  const handleTextChange = (newText: string) => {
-    setText(newText);
-  };
 
   return (
     <div className="App">
@@ -18,7 +16,7 @@ const App: React.FC = () => {
         <h1>Text Syntax Highlighter</h1>
       </header>
       <main>
-        <TextEntry onTextChange={handleTextChange} />
+        <TextEntry setText={setText} />
         <SyntaxOutput text={text} />
         <Annotator text={text} />
       </main>
