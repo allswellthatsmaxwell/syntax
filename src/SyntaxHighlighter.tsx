@@ -15,7 +15,15 @@ interface TooltipProps {
 
 const Tooltip: React.FC<TooltipProps> = ({ children, text }) => {
   const createMarkup = (text: string) => {
-    return { __html: text.replace(/\n/g, '<br />') };
+    // Splitting the text at the first newline character
+    const parts = text.split(/\n/);
+    const syntaxType = parts[0];
+    const comments = parts.length > 1 ? parts.slice(1).join('<br />') : '';
+
+    // Constructing HTML string with bold Syntax Type and optional comments
+    const htmlText = `<strong>${syntaxType}</strong>${comments ? `<br />${comments}` : ''}`;
+
+    return { __html: htmlText };
   };
 
   return (
@@ -48,7 +56,7 @@ const SyntaxHighlighter: React.FC<SyntaxOutputProps> = ({ text }) => {
     <div className="syntax-highlighter">
       {Object.entries(parsedAnnotations).map(([key, value]) => (
         <div className="syntax-item" key={key}>
-          <Tooltip key={key} text={`Syntax Type: ${value['syntax type']}${value.comments ? `\n\nComments: ${value.comments}` : ''}`}>
+          <Tooltip key={key} text={`${value['syntax type']}${value.comments ? `\n\n${value.comments}` : ''}`}>
             <span className="syntax-key">{key}</span>
           </Tooltip>
         </div>

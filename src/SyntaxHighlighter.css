@@ -8,11 +8,31 @@
 }
 
 .syntax-key {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    /* text-decoration-color: #919191;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px; */
+    
+
     cursor: pointer;
     /* Optional: Changes the cursor on hover to indicate interactivity */
     transition: background-color 0.3s;
 }
+
+
+.syntax-key::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%); /* Shift the line back by half its width */
+    bottom: -2px; /* Position the line below the text */
+    width: 95%; /* Adjust this value to control the width of the line */
+    height: 2px; /* Thickness of the underline */
+    background: #919191; /* Color of the underline */
+    border-radius: 1px; /* Optional: to make the line slightly rounded */
+}
+
 
 .syntax-key:hover {
     background-color: #e0e0e0;
@@ -28,7 +48,7 @@
 
 .tooltiptext {
     visibility: hidden;
-    width: 200px;
+    width: 150px;
     font-size: 0.7rem;
     background-color: white;
     color: #000;
